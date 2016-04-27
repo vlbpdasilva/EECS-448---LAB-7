@@ -188,6 +188,7 @@ void Tester::SearchTest()
                 if(list->search(i))
                 {
                         emptySearch = 1;
+                        break;
                 }
         }
         
@@ -215,8 +216,9 @@ void Tester::SearchTest()
         
         list->removeFront();
         list->removeBack();
+        list->removeFront();
         
-        if(!list->search(5) && !list->search(10) && !list->search(50))
+        if(!list->search(5) && !list->search(10) && !list->search(15) && !list->search(50))
         {
             std::cout << "      search() returned false for values that did not exist on the list... PASS." << std::endl;
         }
