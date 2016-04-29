@@ -16,31 +16,61 @@ class Tester
 public:
 
 	/** @pre None
-	*   @post A Test istance is created 
+	*   @post A Tester instance is created 
 	*/
 	Tester();
 
 	/** @pre None
-	*   @post Destructor for Test instance
+	*   @post Destructor for Tester instance
 	*/
 	~Tester();
         
+        /** @pre Existing Tester instance
+	*   @post Prints information about tests
+        *   @return Void
+	*/
         void ConstructorTest();
         
+        /** @pre Existing Tester instance
+	*   @post Prints information about tests
+        *   @return Void
+	*/
         void DestructorTest();
         
+        /** @pre Existing Tester instance
+	*   @post Prints information about tests
+        *   @return Void
+	*/
         void EmptyTest();
-        
+        /** @pre Existing Tester instance
+	*   @post Prints information about tests
+        *   @return Void
+	*/
         void SizeTest();
-        
+        /** @pre Existing Tester instance
+	*   @post Prints information about tests
+        *   @return Void
+	*/
         void SearchTest();
-        
+        /** @pre Existing Tester instance
+	*   @post Prints information about tests
+        *   @return Void
+	*/
         void addBackTest();
-        
+        /** @pre Existing Tester instance
+	*   @post Prints information about tests
+        *   @return Void
+	*/
         void addFrontTest();
-        
+        /** @pre Existing Tester instance
+	*   @post Prints information about tests
+        *   @return Void
+	*/
         void removeBackTest();
-        
+        /** @pre Existing Tester instance
+	*   @post Prints information about tests
+        *   @return Void
+	*/
         void removeFrontTest();
 
 };
