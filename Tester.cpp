@@ -21,6 +21,8 @@ Tester::Tester()
         SearchTest();
         addFrontTest();
         addBackTest();
+        removeFrontTest();
+        removeBackTest();
 }
 
 Tester::~Tester()
@@ -394,7 +396,218 @@ void Tester::addFrontTest()
         }
     
         delete list;
-        std::cout << " " << std::endl;
-                
+        std::cout << " " << std::endl;                
     
+}
+
+void Tester::removeBackTest()
+{
+        std::cout << "9. Testing removeBack() method..." << std::endl;
+    
+        LinkedList<int>* list = new LinkedList<int>();
+        
+        std::cout<<"      Testing removeBack() on empty list, should return false..." << std::endl;
+        
+        if(!(list->removeBack()))
+        {
+                std::cout<< "      removeBack() returned false, as expected... PASS. " << std::endl;
+        }
+        else
+        {
+                std::cout<< "      removeBack() did NOT return false... FAIL." << std::endl;
+        }
+    
+        std::cout<<" " << std::endl;
+        std::cout<<"      Testing removeBack() on list with one node added with addBack()..." << std::endl;
+        
+        list->addBack(20);
+        if(list->removeBack())
+        {
+                std::cout<<"      removeBack() returned true on a list with one node... PASS." << std::endl;
+        }
+        else
+        {
+                std::cout<< "     removeBack() did NOT return true on a list with one node... FAIL" << std::endl;
+        }
+        
+        std::cout<<" " << std::endl;
+                
+        std::cout<<"      Testing removeBack() on list with multiple nodes added with addBack()..." << std::endl;
+        
+        for(int i = -5; i <= 5; i++) 
+        {
+               list->addBack(i);
+        }
+        
+        bool removeBackPass = 1;
+        
+        for(int i = -5; i <= 5; i++) 
+        {
+            if(!(list->removeBack()))
+            {
+                std::cout<< "     removeBack() did NOT return true on list with multiple nodes... FAIL." << std::endl;
+                removeBackPass = 0;
+                break;                
+            }
+        }
+        
+        if(removeBackPass)
+        {
+                std::cout<<"      removeBack() returned true for all values on list with multiple nodes... PASS." << std::endl;
+        }
+        
+        std::cout<<" " << std::endl;
+        
+        delete list;
+        
+        //////////////////////////////////////////////////////////////////////////////////////
+        
+        LinkedList<int>* list2 = new LinkedList<int>();
+        
+        std::cout<<"      Testing removeBack() on list with one node added with addFront()..." << std::endl;
+        
+        list->addFront(20);
+        if(list->removeBack())
+        {
+                std::cout<<"      removeBack() returned true on a list with one node... PASS." << std::endl;
+        }
+        else
+        {
+                std::cout<< "     removeBack() did NOT return true on a list with one node... FAIL" << std::endl;
+        }
+        
+        std::cout<<" " << std::endl;
+                
+        std::cout<<"      Testing removeBack() on list with multiple nodes added with addFront()..." << std::endl;
+        
+        for(int i = -5; i <= 5; i++) 
+        {
+               list->addFront(i);
+        }
+        
+        bool removeBackPass2 = 1;
+        
+        for(int i = -5; i <= 5; i++) 
+        {
+            if(!(list->removeBack()))
+            {
+                std::cout<< "     removeBack() did NOT return true on list with multiple nodes... FAIL." << std::endl;
+                removeBackPass2 = 0;
+                break;                
+            }
+        }
+        
+        if(removeBackPass2)
+        {
+                std::cout<<"      removeBack() returned true for all values on list with multiple nodes... PASS." << std::endl;
+        }
+        
+        std::cout<< " " << std::endl;
+        delete list2;
+}
+
+ void Tester::removeFrontTest()
+{
+        std::cout << "8. Testing removeFront() method..." << std::endl;
+    
+        LinkedList<int>* list = new LinkedList<int>();
+        
+        std::cout<<"      Testing removeFront() on empty list, should return false..." << std::endl;
+        
+        if(!(list->removeFront()))
+        {
+                std::cout<< "      removeFront() returned false, as expected... PASS. " << std::endl;
+        }
+        else
+        {
+                std::cout<< "      removeFront() did NOT return false... FAIL." << std::endl;
+        }
+    
+        std::cout<<" " << std::endl;
+        std::cout<<"      Testing removeFront() on list with one node added with addBack()..." << std::endl;
+        
+        list->addBack(20);
+        if(list->removeFront())
+        {
+                std::cout<<"      removeFront() returned true on a list with one node... PASS." << std::endl;
+        }
+        else
+        {
+                std::cout<< "     removeFront() did NOT return true on a list with one node... FAIL" << std::endl;
+        }
+        
+        std::cout<<" " << std::endl;
+                
+        std::cout<<"      Testing removeFront() on list with multiple nodes added with addBack()..." << std::endl;
+        
+        for(int i = -5; i <= 5; i++) 
+        {
+               list->addBack(i);
+        }
+        
+        bool removeFrontPass = 1;
+        
+        for(int i = -5; i <= 5; i++) 
+        {
+            if(!(list->removeFront()))
+            {
+                std::cout<< "     removeFront() did NOT return true on list with multiple nodes... FAIL." << std::endl;
+                removeFrontPass = 0;
+                break;                
+            }
+        }
+        
+        if(removeFrontPass)
+        {
+                std::cout<<"      removeFront() returned true for all values on list with multiple nodes... PASS." << std::endl;
+        }
+        
+        std::cout<<" " << std::endl;
+        
+        delete list;
+        
+        //////////////////////////////////////////////////////////////////////////////////////
+        
+        LinkedList<int>* list2 = new LinkedList<int>();
+        
+        std::cout<<"      Testing removeFront() on list with one node added with addFront()..." << std::endl;
+        
+        list->addFront(20);
+        if(list->removeFront())
+        {
+                std::cout<<"      removeFront() returned true on a list with one node... PASS." << std::endl;
+        }
+        else
+        {
+                std::cout<< "     removeFront() did NOT return true on a list with one node... FAIL" << std::endl;
+        }
+        
+        std::cout<<" " << std::endl;
+                
+        std::cout<<"      Testing removeFront() on list with multiple nodes added with addFront()..." << std::endl;
+        
+        for(int i = -5; i <= 5; i++) 
+        {
+               list->addFront(i);
+        }
+        
+        bool removeFrontPass2 = 1;
+        
+        for(int i = -5; i <= 5; i++) 
+        {
+            if(!(list->removeFront()))
+            {
+                std::cout<< "     removeFront() did NOT return true on list with multiple nodes... FAIL." << std::endl;
+                removeFrontPass2 = 0;
+                break;                
+            }
+        }
+        
+        if(removeFrontPass2)
+        {
+                std::cout<<"      removeFront() returned true for all values on list with multiple nodes... PASS." << std::endl;
+        }
+        
+        std::cout<< " " << std::endl;
+        delete list2;
 }

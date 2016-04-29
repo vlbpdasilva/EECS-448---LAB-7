@@ -38,6 +38,10 @@ public:
         void addBackTest();
         
         void addFrontTest();
+        
+        void removeBackTest();
+        
+        void removeFrontTest();
 
 };
 
