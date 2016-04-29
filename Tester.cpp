@@ -225,7 +225,7 @@ void Tester::SearchTest()
         }
         else
         {
-            std::cout << "      search() did NOT retur && !list->search(50)n true for values added with addBack()... FAIL." << std::endl;                
+            std::cout << "      search() did NOT return true for values added with addBack()... FAIL." << std::endl;                
         }
         
         list->removeFront();
