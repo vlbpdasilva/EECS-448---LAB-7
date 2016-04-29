@@ -211,7 +211,7 @@ void Tester::SearchTest()
 
         if(list->search(5))
         {
-            std::cout << "      Attempting to search after using addFront()... PASS." << std::endl;
+            std::cout << "      search() returned true for values added with addFront()... PASS." << std::endl;
         }
         else
         {
@@ -527,12 +527,12 @@ void Tester::removeBackTest()
         
         if(list3->search(1))
         {
-                std::cout << "     Value that should have been kept (FRONT) was found... PASS." << std::endl;
+                std::cout << "      Value that should have been kept (FRONT) was found... PASS." << std::endl;
         }
         
         else
         {
-                std::cout<< "      Value that should have been kept (FRONT) was never found... FAIL." << std::endl;
+                std::cout<< "       Value that should have been kept (FRONT) was never found... FAIL." << std::endl;
         }
         
         delete list3;
