@@ -34,6 +34,10 @@ public:
         void SizeTest();
         
         void SearchTest();
+        
+        void addBackTest();
+        
+        void addFrontTest();
 
 };
 

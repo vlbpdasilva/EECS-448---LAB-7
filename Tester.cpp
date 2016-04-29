@@ -8,6 +8,8 @@
 
 Tester::Tester()
 {
+    
+        std::cout << " # # # # # # # # # # # # " << std::endl;
         std::cout << " " << std::endl;
 	std::cout << "Beginning testing of Linked List class:" << std::endl;
         std::cout << " " << std::endl;
@@ -17,6 +19,8 @@ Tester::Tester()
         EmptyTest();
         SizeTest();
         SearchTest();
+        addFrontTest();
+        addBackTest();
 }
 
 Tester::~Tester()
@@ -132,7 +136,7 @@ void Tester::SizeTest()
         else
         {
                 std::cout << "      size() did NOT return a value of 0 on an initial empty list... FAIL." << std::endl;
-                std::cout << "          VALUE RETURNED BY SIZE: " << list->size() << std::endl;
+                std::cout << "          VALUE RETURNED BY size(): " << list->size() << std::endl;
         }
     
         list->addBack(10);
@@ -143,7 +147,7 @@ void Tester::SizeTest()
         else
         {
                 std::cout << "      size() did NOT return a value of 1 on a list containing one element... FAIL." << std::endl;
-                std::cout << "          VALUE RETURNED BY SIZE: " << list->size() << std::endl;
+                std::cout << "          VALUE RETURNED BY size(): " << list->size() << std::endl;
         }       
     
         list->addFront(20);
@@ -154,7 +158,7 @@ void Tester::SizeTest()
         else
         {
                 std::cout << "      size() did NOT return a value of 2 on a list containing two elements... FAIL." << std::endl;
-                std::cout << "          VALUE RETURNED BY SIZE: " << list->size() << std::endl;
+                std::cout << "          VALUE RETURNED BY size(): " << list->size() << std::endl;
         }   
     
         list->removeFront();
@@ -167,7 +171,7 @@ void Tester::SizeTest()
         else
         {
                 std::cout << "      size() did NOT return a value of 0 on an empty list... FAIL." << std::endl;
-                std::cout << "          VALUE RETURNED BY SIZE: " << list->size() << std::endl;
+                std::cout << "          VALUE RETURNED BY size(): " << list->size() << std::endl;
         }
     
         std::cout << " " << std::endl;
@@ -202,23 +206,30 @@ void Tester::SearchTest()
         }
         
         list->addFront(5);
-        list->addBack(10);
-        list->addFront(15);
-        
-        if(list->search(5) && list->search(10) && list->search(15))
+
+        if(list->search(5))
         {
-            std::cout << "      search() returned true for values that existed on the list... PASS." << std::endl;
+            std::cout << "      Attempting to search after using addFront()... PASS." << std::endl;
         }
         else
         {
-            std::cout << "      search() did NOT return true for values that existed on the list... FAIL." << std::endl;                
+            std::cout << "      search() did NOT return true for values added with addFront()... FAIL." << std::endl;                
+        }
+        
+        list->addBack(10);
+        if(list->search(10))
+        {
+            std::cout << "      Attempting to search after using addBack()... PASS." << std::endl;
+        }
+        else
+        {
+            std::cout << "      search() did NOT retur && !list->search(50)n true for values added with addBack()... FAIL." << std::endl;                
         }
         
         list->removeFront();
         list->removeBack();
-        list->removeFront();
         
-        if(!list->search(5) && !list->search(10) && !list->search(15) && !list->search(50))
+        if(!list->search(5) && !list->search(10) && !list->search(15))
         {
             std::cout << "      search() returned false for values that did not exist on the list... PASS." << std::endl;
         }
@@ -226,4 +237,164 @@ void Tester::SearchTest()
         {
             std::cout << "      search() did NOT return false for values that  did not exist on the list... FAIL." << std::endl;                
         }
+        
+        std::cout << " " << std::endl;
+        
+        delete list;
+}
+
+void Tester::addBackTest()
+{
+        std::cout << "7. Testing addBack() method..." << std::endl;
+    
+        LinkedList<int>* list = new LinkedList<int>();
+    
+        bool BackPass = 1;
+        
+        list->addBack(12);
+        
+        if(list->size() == 1)
+        {
+                std::cout << "      Correct size returned after one node added with addBack()... PASS." << std::endl;
+        }
+        else
+        {
+                BackPass = 0;
+                std::cout << "      Incorrect size returned after one node added with addBack()... FAIL." << std::endl;
+        }
+    
+        if(list->search(12))
+        {
+                std::cout << "      search() returned true for a value added with addBack()... PASS." << std::endl;
+        }
+        else
+        {
+                BackPass = 0;
+                std::cout << "      search() did NOT return true for a value added with addBack()... FAIL." << std::endl;
+        }
+        std::cout<< " " << std::endl;
+        std::cout << "      Attempting to test addBack() on multiple iterations... " << std::endl;
+        for(int i = -5; i <= 5; i++) // 11 iterations
+        {
+                list->addBack(i);
+        }
+    
+        bool multiplePass = 1;
+        for(int i = -5; i <= 5; i++) // 11 iterations
+        {
+                if(!(list->search(i)))
+                {
+                        multiplePass = 0;
+                        BackPass = 0;
+                        std::cout << "      search() did NOT return true for multiple nodes added with addBack()... FAIL." << std::endl;
+                        break;
+                }
+        }
+        
+        if(multiplePass)
+        {
+            std::cout << "      search() succesfully returned true for multiple nodes added with addBack()... PASS." << std::endl;
+        }
+        
+        if(list->size() == 12)
+        {
+                std::cout << "      size() returned the correct value after multiple nodes added with addBack()... PASS. " << std::endl;
+        }
+        else
+        {
+            std::cout << "      size() did NOT return the correct value after multiple nodes added with addBack()... FAIL. " << std::endl;
+        }
+        
+        std::cout<< " " <<std::endl;
+        
+        if(!(BackPass))
+        {
+                std::cout << "      Errors were found with the testing of addBack()."<<std::endl;
+        }
+        else
+        {
+                std::cout << "      No errors were found with the testing of addBack()."<<std::endl;
+        }
+    
+        delete list;
+        std::cout << " " << std::endl;
+}
+
+void Tester::addFrontTest()
+{
+        std::cout << "6. Testing addFront() method..." << std::endl;
+    
+        LinkedList<int>* list = new LinkedList<int>();
+    
+        bool FrontPass = 1;
+        
+        list->addFront(12);
+        
+        if(list->size() == 1)
+        {
+                std::cout << "      Correct size returned after one node added with addFront()... PASS." << std::endl;
+        }
+        else
+        {
+                FrontPass = 0;
+                std::cout << "      Incorrect size returned after one node added with addFront()... FAIL." << std::endl;
+        }
+    
+        if(list->search(12))
+        {
+                std::cout << "      search() returned true for a value added with addFront()... PASS." << std::endl;
+        }
+        else
+        {
+                FrontPass = 0;
+                std::cout << "      search() did NOT return true for a value added with addFront()... FAIL." << std::endl;
+        }
+        std::cout<< " " << std::endl;
+        std::cout << "      Attempting to test addFront() on multiple iterations... " << std::endl;
+        for(int i = -5; i <= 5; i++) // 11 iterations
+        {
+                list->addFront(i);
+        }
+    
+        bool multiplePass = 1;
+        for(int i = -5; i <= 5; i++) // 11 iterations
+        {
+                if(!(list->search(i)))
+                {
+                        multiplePass = 0;
+                        FrontPass = 0;
+                        std::cout << "      search() did NOT return true for multiple nodes added with addFront()... FAIL." << std::endl;
+                        break;
+                }
+        }
+        
+        if(multiplePass)
+        {
+            std::cout << "      search() succesfully returned true for multiple nodes added with addFront()... PASS." << std::endl;
+        }
+        
+        if(list->size() == 12)
+        {
+                std::cout << "      size() returned the correct value after multiple nodes added with addFront()... PASS. " << std::endl;
+        }
+        else
+        {
+            std::cout << "      size() did NOT return the correct value after multiple nodes added with addFront()... FAIL. " << std::endl;
+        }
+        
+        std::cout<< " " <<std::endl;
+        
+        if(!(FrontPass))
+        {
+                std::cout << "      Errors were found with the testing of addFront()."<<std::endl;
+        }
+        else
+        {
+                std::cout << "      No errors were found with the testing of addFront()."<<std::endl;
+        }
+    
+        delete list;
+        std::cout << " " << std::endl;
+                
+    
 }
