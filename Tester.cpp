@@ -504,6 +504,40 @@ void Tester::removeBackTest()
         
         std::cout<< " " << std::endl;
         delete list2;
+        
+        //////////////////////////////////////////////////////////////////////////////////////
+        
+        std::cout<<"      Searching for values after using removeBack()..." << std::endl;
+        
+        LinkedList<int>* list3 = new LinkedList<int>();
+        
+        list3->addFront(1);
+        list3->addBack(2);
+        list3->removeBack();
+        
+        if(!(list3->search(2)))
+        {
+                std::cout << "      Value that should have been removed (BACK) was not found by search()... PASS." << std::endl;
+        }
+        
+        else
+        {
+                std::cout<< "       Value that should have been removed (BACK) was still found by search()... FAIL." << std::endl;
+        }
+        
+        if(list3->search(1))
+        {
+                std::cout << "     Value that should have been kept (FRONT) was found... PASS." << std::endl;
+        }
+        
+        else
+        {
+                std::cout<< "      Value that should have been kept (FRONT) was never found... FAIL." << std::endl;
+        }
+        
+        delete list3;
+        
+        std::cout << " " << std::endl;
 }
 
  void Tester::removeFrontTest()
@@ -609,5 +643,41 @@ void Tester::removeBackTest()
         }
         
         std::cout<< " " << std::endl;
+        
         delete list2;
+        
+        //////////////////////////////////////////////////////////////////////////////////////
+        
+        std::cout<<"      Searching for values after using removeFront()..." << std::endl;
+        
+        LinkedList<int>* list3 = new LinkedList<int>();
+        
+        list3->addFront(1);
+        list3->addBack(2);
+        list3->removeFront();
+        
+        if(!(list3->search(1)))
+        {
+                std::cout << "      Value that should have been removed (FRONT) was not found by search()... PASS." << std::endl;
+        }
+        
+        else
+        {
+                std::cout<< "      Value that should have been removed (FRONT) was still found by search()... FAIL." << std::endl;
+        }
+        
+        if(list3->search(2))
+        {
+                std::cout << "     Value that should have been kept (BACK) was found... PASS." << std::endl;
+        }
+        
+        else
+        {
+                std::cout<< "      Value that should have been kept (BACK) was never found... FAIL." << std::endl;
+        }
+        
+        delete list3;
+        
+        std::cout << " " << std::endl;
+        
 }
