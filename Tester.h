@@ -42,31 +42,37 @@ public:
         *   @return Void
 	*/
         void EmptyTest();
+        
         /** @pre Existing Tester instance
 	*   @post Prints information about tests
         *   @return Void
 	*/
         void SizeTest();
+        
         /** @pre Existing Tester instance
 	*   @post Prints information about tests
         *   @return Void
 	*/
         void SearchTest();
+        
         /** @pre Existing Tester instance
 	*   @post Prints information about tests
         *   @return Void
 	*/
         void addBackTest();
+        
         /** @pre Existing Tester instance
 	*   @post Prints information about tests
         *   @return Void
 	*/
         void addFrontTest();
+        
         /** @pre Existing Tester instance
 	*   @post Prints information about tests
         *   @return Void
 	*/
         void removeBackTest();
+        
         /** @pre Existing Tester instance
 	*   @post Prints information about tests
         *   @return Void
